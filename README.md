@@ -27,17 +27,33 @@ AutoForm is a workflow automation web application developed to simplify employee
 
 ## Workflow  
 
-Employee submits request  
-         ↓  
-Pending Manager Approval  
-         ↓  
-Manager approves/rejects
-         ↓
-Pending HR Approval
-         ↓  
-HR approves/rejects  
-         ↓  
-Final status updated for employee  
+## Workflow Diagram
+
+```mermaid
+flowchart TD
+
+A[Employee Login] --> B[Submit Leave Request]
+
+B --> C[Pending Manager Approval]
+
+C --> D{Manager Decision}
+
+D -->|Approve| E[Pending HR Approval]
+
+D -->|Reject| F[Request Rejected]
+
+E --> G{HR Decision}
+
+G -->|Approve| H[Request Approved]
+
+G -->|Reject| I[Request Rejected]
+
+H --> J[Employee Tracks Approved Status]
+
+F --> K[Employee Tracks Rejected Status]
+
+I --> K
+```
 
 ## Technologies used 
 
