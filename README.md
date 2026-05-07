@@ -7,21 +7,47 @@ AutoForm is a workflow automation web application developed to simplify employee
 ## Features
 
 ### Employee Features  
-User Registration and Login  
-Submit Leave Requests  
-Submit Permission Requests  
-Submit IT Support Requests  
-Track Request Status  
-Submit Feedback  
+-User Registration and Login  
+-Submit Leave Requests  
+-Submit Permission Requests  
+-Submit IT Support Requests  
+-Track Request Status  
+-Submit Feedback  
 
 ### Manager Features  
-Separate Manager Dashboard  
-View Pending Employee Requests  
-Approve Requests  
-Reject Requests  
+-Separate Manager Dashboard  
+-View Pending Employee Requests  
+-Approve Requests  
+-Reject Requests  
 
 ### HR Features
-Separate HR Dashboard  
-View Manager Approved Requests  
-Final Approval or Rejection  
+-Separate HR Dashboard  
+-View Manager Approved Requests  
+-Final Approval or Rejection  
+
+## Workflow  
+
+Employee submits request  
+         ↓  
+Pending Manager Approval  
+         ↓  
+Manager approves/rejects
+         ↓
+Pending HR Approval
+         ↓  
+HR approves/rejects  
+         ↓  
+Final status updated for employee  
+
+## Technologies used 
+
+HTML  
+CSS  
+JavaScript  
+Local storage   
+
+## Note   
+
+This project uses browser LocalStorage
+
 
