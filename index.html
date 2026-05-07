@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AutoForm Workflow Automation</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+  <!-- ================= LOGIN SECTION ================= -->
+
+  <section id="login-section" class="page-section">
+
+    <h2>Login to AutoForm</h2>
+
+    <form id="login-form">
+
+      <label for="login-email">Email</label>
+
+      <input type="email" id="login-email" required>
+
+      <label for="login-password">Password</label>
+
+      <input type="password" id="login-password" required>
+
+      <button type="submit">Login</button>
+
+    </form>
+
+    <p>
+      Don't have an account?
+      <a href="#" onclick="showSection('register-section')">
+        Register
+      </a>
+    </p>
+
+  </section>
+
+
+  <!-- ================= REGISTER SECTION ================= -->
+
+  <section id="register-section" class="page-section" style="display:none;">
+
+    <h2>Create Your AutoForm Account</h2>
+
+    <form id="register-form">
+
+      <label for="register-name">Full Name</label>
+
+      <input type="text" id="register-name" required>
+
+      <label for="register-email">Email</label>
+
+      <input type="email" id="register-email" required>
+
+      <label for="register-password">Password</label>
+
+      <input type="password" id="register-password" required>
+
+      <label for="register-role">Role</label>
+
+      <select id="register-role" required>
+
+        <option value="">Select your role</option>
+
+        <option value="employee">Employee</option>
+
+        <option value="manager">Manager</option>
+
+        <option value="hr">HR</option>
+
+      </select>
+
+      <button type="submit">Register</button>
+
+    </form>
+
+    <p>
+      Already have an account?
+      <a href="#" onclick="showSection('login-section')">
+        Login
+      </a>
+    </p>
+
+  </section>
+
+
+  <!-- ================= EMPLOYEE DASHBOARD ================= -->
+
+  <section id="dashboard-section" class="page-section" style="display:none;">
+
+    <header>
+
+      <h1>Employee Dashboard</h1>
+
+      <nav>
+
+        <button onclick="showSection('new-request-section')">
+          New Request
+        </button>
+
+        <button onclick="showSection('status-section'); loadStatusList();">
+          Track Status
+        </button>
+
+        <button onclick="showSection('feedback-section')">
+          Feedback
+        </button>
+
+        <button onclick="logout()">
+          Logout
+        </button>
+
+      </nav>
+
+    </header>
+
+    <main>
+
+      <h2>Welcome to AutoForm</h2>
+
+      <p>Select an action above.</p>
+
+    </main>
+
+  </section>
+
+
+  <!-- ================= MANAGER DASHBOARD ================= -->
+
+  <section id="manager-dashboard-section" class="page-section" style="display:none;">
+
+    <header>
+
+      <h1>Manager Dashboard</h1>
+
+      <button onclick="logout()">Logout</button>
+
+    </header>
+
+    <main>
+
+      <h2>Pending Employee Requests</h2>
+
+      <ul id="manager-request-list"></ul>
+
+    </main>
+
+  </section>
+
+
+  <!-- ================= HR DASHBOARD ================= -->
+
+  <section id="hr-dashboard-section" class="page-section" style="display:none;">
+
+    <header>
+
+      <h1>HR Dashboard</h1>
+
+      <button onclick="logout()">Logout</button>
+
+    </header>
+
+    <main>
+
+      <h2>Manager Approved Requests</h2>
+
+      <ul id="hr-request-list"></ul>
+
+    </main>
+
+  </section>
+
+
+  <!-- ================= NEW REQUEST ================= -->
+
+  <section id="new-request-section" class="page-section" style="display:none;">
+
+    <header>
+
+      <h1>New Request</h1>
+
+      <button onclick="showSection('dashboard-section')">
+        Back to Dashboard
+      </button>
+
+    </header>
+
+    <main>
+
+      <h2>Select Request Type</h2>
+
+      <form id="request-type-form">
+
+        <label for="request-type">Request Type</label>
+
+        <select id="request-type" required>
+
+          <option value="">Choose one</option>
+
+          <option value="leave">Leave Application</option>
+
+          <option value="permission">Permission Request</option>
+
+          <option value="it">IT Support</option>
+
+        </select>
+
+        <button type="submit">Continue</button>
+
+      </form>
+
+    </main>
+
+  </section>
+
+
+  <!-- ================= DYNAMIC FORM ================= -->
+
+  <section id="fill-form-section" class="page-section" style="display:none;">
+
+    <header>
+
+      <h1 id="form-title">Fill Form</h1>
+
+      <button onclick="showSection('new-request-section')">
+        Back
+      </button>
+
+    </header>
+
+    <main>
+
+      <form id="fill-form">
+
+      </form>
+
+    </main>
+
+  </section>
+
+
+  <!-- ================= STATUS SECTION ================= -->
+
+  <section id="status-section" class="page-section" style="display:none;">
+
+    <header>
+
+      <h1>Track Request Status</h1>
+
+      <button onclick="showSection('dashboard-section')">
+        Back to Dashboard
+      </button>
+
+    </header>
+
+    <main>
+
+      <h2>Your Requests</h2>
+
+      <ul id="status-list"></ul>
+
+    </main>
+
+  </section>
+
+
+  <!-- ================= FEEDBACK SECTION ================= -->
+
+  <section id="feedback-section" class="page-section" style="display:none;">
+
+    <header>
+
+      <h1>Feedback</h1>
+
+      <button onclick="showSection('dashboard-section')">
+        Back
+      </button>
+
+    </header>
+
+    <main>
+
+      <form id="feedback-form">
+
+        <label for="feedback-text">Share your feedback</label>
+
+        <textarea id="feedback-text" rows="5" required></textarea>
+
+        <button type="submit">Submit Feedback</button>
+
+      </form>
+
+    </main>
+
+  </section>
+
+
+  <!-- ================= SCRIPT ================= -->
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
