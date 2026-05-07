@@ -25,8 +25,6 @@ AutoForm is a workflow automation web application developed to simplify employee
 -View Manager Approved Requests  
 -Final Approval or Rejection  
 
-## Workflow  
-
 ## Workflow Diagram
 
 ```mermaid
