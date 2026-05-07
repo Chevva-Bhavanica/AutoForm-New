@@ -51,14 +51,7 @@ H --> J[Employee Tracks Approved Status]
 F --> K[Employee Tracks Rejected Status]
 
 I --> K
-```
-
-## Technologies used 
-
-HTML  
-CSS  
-JavaScript  
-Local storage   
+```  
 
 ## Note   
 
